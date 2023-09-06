@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: #80808042;
+    height: 70px;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px;
+    cursor: pointer;
+}
