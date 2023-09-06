@@ -1,6 +1,6 @@
 .album{
     width: 350px;
-    height: 350px;
+    height: 300px;
     background-color: aliceblue;
     padding: 2px;
     margin: 2px;
@@ -14,19 +14,21 @@
 }
 
 .title{
-    font-size: 50px;
+    font-size: 25px;
     font-weight: lighter;
     text-align: center;
 }
 
 .buttonsContainer{
+    margin: 5px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 50px;
 }
 
-.edit {
+.edit{
     padding: 2px;
     width: 100px;
     height: 50px;
@@ -56,4 +58,28 @@
         background-color: rgba(255, 0, 0, 0.848);
     }
 
+}
+
+.updateButton {
+    padding: 2px;
+    margin-left: 15px;
+    width: 100px;
+    height: 30px;
+    font-size: large;
+    font-weight: 500;
+    background-color: #80808045;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: all 2s;
+    &:hover{
+        background-color: rgba(21, 128, 0, 0.772);
+    }
+
+}
+
+.titleInput{
+    font-size: large;
+    padding: 1px;
+    margin: 2px;
 }

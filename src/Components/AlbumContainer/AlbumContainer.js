@@ -6,20 +6,6 @@ export const AlbumContainer = () =>{
         <>
             <div className={styles.albumContainer}>
                 <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
-                <Album/>
             </div>
         </>
     )
