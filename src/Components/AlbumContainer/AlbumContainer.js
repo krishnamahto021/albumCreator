@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Album } from "../Album/Album";
 import styles from "./AlbumContainer.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { albumSelectors, getInitialState } from "../../redux/reducers/albumReducer";
+import {albumsArray, getInitialState } from "../../redux/reducers/albumReducer";
 
 export const AlbumContainer = () =>{
     const dispatch = useDispatch();
@@ -10,7 +10,8 @@ export const AlbumContainer = () =>{
         dispatch(getInitialState());        
     },[dispatch]);
 
-    const albums = useSelector(albumSelectors);
+    const albums = useSelector(albumsArray);
+    console.log(albums[0]);
     
     return (
         <>

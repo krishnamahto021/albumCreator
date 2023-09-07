@@ -1,21 +1,20 @@
-import { Provider } from "react-redux";
+import { useSelector } from "react-redux";
 import { AlbumContainer } from "./Components/AlbumContainer/AlbumContainer";
 import { AlbumForm } from "./Components/AlbumForm/AlbumForm";
 import { NavBar } from "./Components/NavBar/NavBar";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { store } from "./redux/store";
+import { showForm } from "./redux/reducers/albumReducer";
 
 function App() {
-  let showForm = false;
+  const showFormVal = useSelector(showForm);
+
   return (
-    <Provider store={store}>
-    <div className="App">
-      <ToastContainer />
-      <NavBar />
-      {showForm ? <AlbumForm /> : <AlbumContainer />}
-    </div>
-    </Provider>
+      <div className="App">
+        <ToastContainer />
+        <NavBar />
+        {showFormVal ? <AlbumForm /> : <AlbumContainer />}
+      </div>
   );
 }
 
