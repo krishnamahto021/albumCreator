@@ -1,8 +1,9 @@
 import styles from "./Album.module.css";
 import { LuImage } from "react-icons/lu";
 
-export const Album = () => {
+export const Album = (props) => {
   let showUpdateForm = false;
+  const {title} = props;
   return (
     <>
       <div className={styles.album}>
@@ -19,7 +20,7 @@ export const Album = () => {
             <button className={styles.updateButton}>Update</button>
           </div>
         ) : (
-          <div className={styles.title}>title</div>
+          <div className={styles.title}>{title}</div>
         )}
         <div className={styles.buttonsContainer}>
           <button className={styles.edit}>Edit</button>
