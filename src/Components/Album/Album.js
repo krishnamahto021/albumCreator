@@ -1,7 +1,11 @@
 import { useDispatch } from "react-redux";
 import styles from "./Album.module.css";
 import { LuImage } from "react-icons/lu";
-import { deleteAlbum, albumActions, updateAlbum } from "../../redux/reducers/albumReducer";
+import {
+  deleteAlbum,
+  albumActions,
+  updateAlbum,
+} from "../../redux/reducers/albumReducer";
 import { useRef } from "react";
 
 export const Album = (props) => {
@@ -18,9 +22,9 @@ export const Album = (props) => {
     dispatch(deleteAlbum(id));
   }
 
-  function handleUpdate(id){
+  function handleUpdate(id) {
     const title = updatedTitle.current.value;
-    dispatch(updateAlbum({title,id}));
+    dispatch(updateAlbum({ title, id }));
     dispatch(toggleUpdateForm(id));
   }
 

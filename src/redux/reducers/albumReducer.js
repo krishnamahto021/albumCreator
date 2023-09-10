@@ -11,11 +11,16 @@ export const getInitialState = createAsyncThunk(
   "album/getInitialState",
   async (_, thunkAPI) => {
     try {
-      console.log("iniial");
       const res = await axios.get(
         "https://jsonplaceholder.typicode.com/albums"
       );
-      return res.data;
+
+      const albumsWithEditing = res.data.map((album)=>({
+        ...album,
+        isEditing:false
+      }))
+      
+      return albumsWithEditing;
     } catch (err) {
       console.log("Error in fetching the details", err);
       toast.error("Error in Fetching!!");
@@ -85,6 +90,7 @@ export const albumSlice = createSlice({
       const albumToEdit = state.albumsArray.find(
         (album) => album.id === albumId
       );
+      console.log(albumToEdit.isEditing);
       if (albumToEdit) {
         albumToEdit.isEditing = !albumToEdit.isEditing;
       }
