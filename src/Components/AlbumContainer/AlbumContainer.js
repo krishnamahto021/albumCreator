@@ -1,28 +1,32 @@
-import { useEffect } from "react";
+
 import { Album } from "../Album/Album";
 import styles from "./AlbumContainer.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import {albumsArray, getInitialState } from "../../redux/reducers/albumReducer";
+import { useSelector } from "react-redux";
+import {
+  albumsArray,
+} from "../../redux/reducers/albumReducer";
 
-export const AlbumContainer = () =>{
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        dispatch(getInitialState());        
-    },[dispatch]);
+export const AlbumContainer = () => {
 
-    const albums = useSelector(albumsArray);
-    
-    return (
-        <>
-            <div className={styles.albumContainer}>
-                {albums.map((album,i)=>{
-                    return(
-                        <>
-                            <Album key={i} title={album.title} id={album.id}/>
-                        </>
-                    )
-                })}
-            </div>
-        </>
-    )
-}
+
+  const albums = useSelector(albumsArray);
+
+  return (
+    <>
+      <div className={styles.albumContainer}>
+        {albums.map((album, i) => {
+          return (
+            <>
+              <Album
+                key={i}
+                title={album.title}
+                id={album.id}
+                isEditing={album.isEditing}
+              />
+            </>
+          );
+        })}
+      </div>
+    </>
+  );
+};
