@@ -11,7 +11,6 @@ export const AlbumContainer = () =>{
     },[dispatch]);
 
     const albums = useSelector(albumsArray);
-    console.log(albums[0]);
     
     return (
         <>
@@ -19,7 +18,7 @@ export const AlbumContainer = () =>{
                 {albums.map((album,i)=>{
                     return(
                         <>
-                            <Album key={i} title={album.title}/>
+                            <Album key={i} title={album.title} id={album.id}/>
                         </>
                     )
                 })}

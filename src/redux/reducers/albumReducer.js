@@ -36,6 +36,18 @@ export const addNewAlbum = createAsyncThunk(
   }
 );
 
+export const deleteAlbum = createAsyncThunk("album/deleteAlbum",async (id,thunkAPI)=>{
+  try{
+    await axios.delete(`https://jsonplaceholder.typicode.com/albums/${id}`);
+    toast.success("Album Deleted Successfully!!");
+    return id;
+  }catch(err){
+    toast.error("Error in Deleting Album!");
+    console.log("Error in deleting album",err);
+  }
+
+})
+
 export const albumSlice = createSlice({
   name: "album",
   initialState,
@@ -50,8 +62,12 @@ export const albumSlice = createSlice({
         state.albumsArray = [...action.payload];
       })
       .addCase(addNewAlbum.fulfilled, (state, action) => {
-        state.albumsArray.unshift(action.payload.data);
-      });
+        state.albumsArray = [action.payload.data,...state.albumsArray];
+      })
+      .addCase(deleteAlbum.fulfilled,(state,action)=>{
+        const id = action.payload;
+        state.albumsArray = state.albumsArray.filter((album)=>album.id !== id);
+      })
   },
 });
 
